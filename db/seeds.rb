@@ -1,0 +1,6 @@
+Owner.create(username: "Joe", password: "test")
+Owner.create(username: "Max", password: "test")
+Book.create(title: "1984", author: "George Orwell", genre:"Fiction", publishing_date: "1949", condition: "used", type: "paperback")
+Book.create(title: "For Whom the Bell Tolls", author: "Ernest Hemingway", genre:"Fiction", publishing_date: "1940", condition: "used", type: "paperback")
+Book.create(title: "Slaugherhouse-Five", author: "Kurt Vonnegut", genre:"Fiction", publishing_date: "1969", condition: "new", type: "hardcover")
+Book.create(title: "Pride and Prejudice", author: "Jane Austen", genre:"Fiction", publishing_date: "1813", condition: "used", type: "hardcover")

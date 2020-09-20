@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20200920014314) do
     t.string  "type"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "owners", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
   end
