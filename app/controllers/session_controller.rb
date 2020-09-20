@@ -8,5 +8,9 @@ class SessionController < ApplicationController
         erb :"session/login"
     end
 
+    get "/failure" do
+        erb :"session/failure"
+    end
+
 
 end
