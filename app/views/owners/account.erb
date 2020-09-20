@@ -1,1 +1,5 @@
-/owners/account.erb
+<h2><%= current_user.name %>, welcome to Liber.</h2>
+
+<form action="/logout">
+    <input type="submit" value="Log Out" name="logout">
+</form>

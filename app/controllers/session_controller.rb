@@ -19,6 +19,11 @@ class SessionController < ApplicationController
         end
     end
 
+    get "/logout" do
+        session.clear
+        redirect "/"
+    end
+
     get "/failure" do
         erb :"session/failure"
     end
@@ -26,16 +31,5 @@ class SessionController < ApplicationController
     get "/taken" do
         erb :"session/taken"
     end
-
-    helpers do
-        def logged_in?
-          !!session[:user_id]
-        end
     
-        def current_user
-          Owner.find(session[:user_id])
-        end
-      end
-
-
 end
