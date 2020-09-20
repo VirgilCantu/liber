@@ -4,4 +4,7 @@ class OwnersController < ApplicationController
         erb :"owners/signup"
     end
 
+    post "/signup" do
+        
+    end
 end
