@@ -8,5 +8,5 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     set :session_secret, "liber_secret"
   end
-
+   
 end

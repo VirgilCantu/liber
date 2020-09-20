@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20200920014314) do
     t.string  "title"
     t.string  "author"
     t.string  "genre"
-    t.integer "published"
+    t.integer "year"
     t.string  "condition"
     t.string  "book_type"
     t.integer "owner_id"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20200920014314) do
   create_table "owners", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.string "name"
+    t.string "location"
   end
 
 end
