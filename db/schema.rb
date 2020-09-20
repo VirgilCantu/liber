@@ -17,9 +17,10 @@ ActiveRecord::Schema.define(version: 20200920014314) do
     t.string  "title"
     t.string  "author"
     t.string  "genre"
-    t.integer "publishing_date"
+    t.integer "published"
     t.string  "condition"
-    t.string  "type"
+    t.string  "book_type"
+    t.integer "owner_id"
   end
 
   create_table "owners", force: :cascade do |t|

@@ -4,9 +4,9 @@ class CreateBooksTable < ActiveRecord::Migration
       t.string :title
       t.string :author
       t.string :genre
-      t.integer :publishing_date
+      t.integer :published
       t.string :condition
-      t.string :type
+      t.string :book_type
       t.integer :owner_id
     end
   end
