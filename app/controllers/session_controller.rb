@@ -27,5 +27,15 @@ class SessionController < ApplicationController
         erb :"session/taken"
     end
 
+    helpers do
+        def logged_in?
+          !!session[:user_id]
+        end
+    
+        def current_user
+          Owner.find(session[:user_id])
+        end
+      end
+
 
 end
