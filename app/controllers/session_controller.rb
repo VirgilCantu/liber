@@ -8,6 +8,10 @@ class SessionController < ApplicationController
         erb :"session/login"
     end
 
+    post "/login" do
+        
+    end
+
     get "/failure" do
         erb :"session/failure"
     end
