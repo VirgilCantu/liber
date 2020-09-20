@@ -1,7 +1,11 @@
 class SessionController < ApplicationController
     
     get "/" do
-        erb :"sessions/index"
+        erb :"session/index"
+    end
+
+    get "/login" do
+        erb :"session/login"
     end
 
 end
