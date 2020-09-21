@@ -1,9 +1,9 @@
 <h1>Liber Database</h1>
 <h3>A listing of all the books currently available to trade</h3>
 <br>
-<% Book.all.sort.each do |b| %>
+<% Book.all.sort.each.with_index(1) do |b, i| %>
     <ul>
-    <h4><%= b.title %> by  <%= b.author %></h4>
+    <h4><%=i%>. <%= b.title %> by <%= b.author %></h4>
     <br>
     <li>Genre: <%= b.genre %></li>
     <li>Publishing Date: <%= b.year %></li>

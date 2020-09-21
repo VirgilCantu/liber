@@ -5,3 +5,8 @@
     <p>Condtion: <%= @book.condition %></p>
     <p>Type: <%= @book.book_type %></p>
     <p>Current Owner: <%= @book.owner.name %> (<%= @book.owner.username %>)</p>
+
+    <form action="/books/<%= @book.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete" />
+  <input type="submit" value="Delete" />
+</form>

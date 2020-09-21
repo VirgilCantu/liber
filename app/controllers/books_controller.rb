@@ -26,4 +26,17 @@ class BooksController < ApplicationController
         erb :'/books/edit'
     end 
 
+    patch '/books/:id' do
+        @book = Book.find(params[:id])
+        @book.update(params[:book])  
+        @book.save 
+        redirect to "books/#{@book.id}"
+      end
+
+      delete '/books/:id' do 
+        @book = Book.find_by_id(params[:id])
+        @book.delete
+        redirect to '/books'
+      end 
+
 end
