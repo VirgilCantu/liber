@@ -18,7 +18,7 @@ class BooksController < ApplicationController
     end
 
     post "/books" do
-        if params[:title] == "" || params[:author] == "" || params[:condition] == "" || params[:book_type] == "" 
+        if params[:title].empty? || params[:author].empty? || params[:condition].empty? || params[:book_type].empty? 
             redirect "/required"
         else
             @book = Book.create(params)
