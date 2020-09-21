@@ -1,5 +1,29 @@
 <h2><%= current_user.name %>, welcome to Liber.</h2>
 
+<h3>Your current location: <%= current_user.location  %> </h3>
+<br>
+<h3>Add a new book</h3>
+<form action="/books/new">
+    <input type="submit" value="Add New Book" name="add_new_book">
+</form>
+<br>
+<h3>Current books in your library:</h3>
+<br>
+<% current_user.books.each do |b| %>
+    <ul>
+    <h4><%= b.title %> by  <%= b.author %></h4>
+    <br>
+    <li>Genre: <%= b.genre %></li>
+    <li>Publishing Date: <%= b.year %></li>
+    <li>Condtion: <%= b.condition %></li>
+    <li>Type: <%= b.book_type %></li>
+    <br>
+    <br>
+    </ul>
+<% end %>
+
+
+
 <form action="/logout">
     <input type="submit" value="Log Out" name="logout">
 </form>

@@ -31,5 +31,4 @@ class SessionController < ApplicationController
     get "/taken" do
         erb :"session/taken"
     end
-    
 end
