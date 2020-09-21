@@ -41,6 +41,6 @@ class SessionController < ApplicationController
     end
 
     get "/required" do
-        erb :"sessions/required"
+        erb :"session/required"
     end
 end

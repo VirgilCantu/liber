@@ -10,7 +10,11 @@ class BooksController < ApplicationController
     end
         
     get "/books/new" do
-        erb :"/books/new"
+        if logged_in?
+            erb :"/books/new"
+        else 
+            redirect "/login"
+        end
     end
 
     post "/books" do
@@ -30,8 +34,12 @@ class BooksController < ApplicationController
     end
     
     get '/books/:id/edit' do
-        find_book
-        erb :'/books/edit'
+        if logged_in? && current_user.id == Book.find(params[:id]).owner.id
+            find_book
+            erb :'/books/edit'
+        else
+            redirect "/not_auth"
+        end
     end 
 
     patch '/books/:id' do
