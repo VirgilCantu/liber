@@ -1,0 +1,9 @@
+<h4><%= @owner.name %> (<%= @owner.username %>) - <%= @owner.location %></h4>
+    <br>
+    <p>Books for Trade:</p>
+        <% @owner.books.each.with_index(1) do |b, i| %>
+        <ul>
+        <li> <%= i %>. <%= b.title %> by <%= b.author %>
+        </ul>
+        <br>
+        <% end %>

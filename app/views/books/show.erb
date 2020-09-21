@@ -6,7 +6,11 @@
     <p>Type: <%= @book.book_type %></p>
     <p>Current Owner: <%= @book.owner.name %> (<%= @book.owner.username %>)</p>
 
-    <form action="/books/<%= @book.id %>" method="post">
-  <input id="hidden" type="hidden" name="_method" value="delete" />
-  <input type="submit" value="Delete" />
-</form>
+  <form action="/books/<%= @book.id %>/edit" method="GET">
+    <input type="submit" value="Edit Book" name="book_edit">
+  </form>
+<br>
+  <form action="/books/<%= @book.id %>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Book">
+  </form>

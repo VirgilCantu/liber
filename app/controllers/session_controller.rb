@@ -13,7 +13,7 @@ class SessionController < ApplicationController
         
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            redirect "/account"
+            redirect "/owners/account"
         else
             redirect "/failure"
         end
@@ -30,5 +30,9 @@ class SessionController < ApplicationController
 
     get "/taken" do
         erb :"session/taken"
+    end
+
+    get "/not_auth" do
+        erb :"session/not_auth"
     end
 end

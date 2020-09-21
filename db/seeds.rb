@@ -1,4 +1,4 @@
-Owner.create(username: "John01", password: "joesmithpassword", name: "John Smith", location: "Houston, TX")
+Owner.create(username: "JohnSmith", password: "johnsmith", name: "John Smith", location: "Houston, TX")
 Owner.create(username: "Max91", password: "mydogfido", name: "Max Hudson", location: "New York, NY")
 Owner.create(username: "Ali90", password: "iloveny", name: "Allison White", location: "New York, NY")
 Owner.create(username: "Dave02", password: "leibowitz22", name: "David Leibowitz", location: "Los Angeles, CA")

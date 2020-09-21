@@ -1,9 +1,13 @@
 class BooksController < ApplicationController
     
     get '/books' do
-        @books = Book.all
-        erb :'/books/index'
-      end
+        if logged_in?
+            @books = Book.all
+            erb :'/books/index'
+        else 
+            redirect "/"
+        end
+    end
         
     get "/books/new" do
         erb :"/books/new"
@@ -19,7 +23,7 @@ class BooksController < ApplicationController
     get '/books/:id' do
         @book = Book.find(params[:id])
         erb :'/books/show'
-      end
+    end
     
     get '/books/:id/edit' do
         @book = Book.find(params[:id])

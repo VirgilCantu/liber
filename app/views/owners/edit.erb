@@ -1,1 +1,22 @@
-/owners/edit.erb
+<h3>Edit you Liber account information below</h3>
+<br>
+<form action="/owners/<%= @owner.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <label for="username">Username: </label>
+    <input type="text" name="owner[username]" placeholder="Username" value="<%=current_user.username%>">
+    <br>
+    <br>
+    <label for="password">Password: </label>
+    <input type="text" name="owner[password]" placeholder="Password" value="<%=current_user.password%>">
+    <br>
+    <br>
+    <label for="name">Name: </label>
+    <input type="text" name="owner[name]" placeholder="Name" value="<%=current_user.name%>">
+    <br>
+    <br>
+    <label for="location">Location: </label>
+    <input type="text" name="owner[location]" placeholder="Location" value="<%=current_user.location%>">
+    <br>
+    <br>
+    <input type="submit" value="Edit Account">
+</form> 
