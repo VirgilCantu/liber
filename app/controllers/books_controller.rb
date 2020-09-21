@@ -14,11 +14,14 @@ class BooksController < ApplicationController
     end
 
     post "/books" do
-        #if params[:title] && params[:author && ]
-        @book = Book.create(params)
-        @book.owner = current_user
-        @book.save
-        redirect "/owners/#{current_user.id}"
+        if params[:title] == "" || params[:author] == "" || params[:condition] == "" || params[:book_type] == "" 
+            redirect "/required"
+        else
+            @book = Book.create(params)
+            @book.owner = current_user
+            @book.save
+            redirect "/owners/#{current_user.id}"
+        end
     end
 
     get '/books/:id' do

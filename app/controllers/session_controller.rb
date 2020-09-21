@@ -10,12 +10,16 @@ class SessionController < ApplicationController
 
     post "/login" do
         user = Owner.find_by(username: params[:username])
-        
-        if user && user.authenticate(params[:password])
-            session[:user_id] = user.id
-            redirect "/owners/#{user.id}"
+
+        if logged_in?
+            redirect "/owners/#{current_user.id}"
         else
-            redirect "/failure"
+            if user && user.authenticate(params[:password])
+                session[:user_id] = user.id
+                redirect "/owners/#{user.id}"
+            else
+                redirect "/failure"
+            end
         end
     end
 
@@ -34,5 +38,9 @@ class SessionController < ApplicationController
 
     get "/not_auth" do
         erb :"session/not_auth"
+    end
+
+    get "/required" do
+        erb :"sessions/required"
     end
 end
