@@ -15,10 +15,6 @@ class OwnersController < ApplicationController
         end
     end
 
-    get "/owners/account" do
-        erb :"owners/account"
-    end
-
     get "/owners" do
         @owners = Owner.all
         erb :'/owners/index'
@@ -42,6 +38,6 @@ class OwnersController < ApplicationController
         @owner = Owner.find(params[:id])
         @owner.update(params[:owner])  
         @owner.save 
-        redirect to "/owners/account"
+        redirect to "/owners/#{@owner.id}"
       end
 end

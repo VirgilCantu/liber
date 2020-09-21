@@ -13,7 +13,7 @@ class SessionController < ApplicationController
         
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            redirect "/owners/account"
+            redirect "/owners/#{user.id}"
         else
             redirect "/failure"
         end
