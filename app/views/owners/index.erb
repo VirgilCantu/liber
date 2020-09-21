@@ -3,13 +3,13 @@
 <br>
 <% Owner.all.sort.each.with_index(1) do |o, i| %>
     <ul>
-    <h4><%= i %>. <%= o.name %> (<%= o.username %>) - <%= o.location %></h4>
+    <h4><%= i %>. <a href="/owners/<%= o.id %>"><%= o.name %></a> (<%= o.username %>) - <%= o.location %></h4>
     <br>
     <li>Books for Trade:</li>
         <br>
         <% o.books.each.with_index(1) do |b, i| %>
         <ul>
-        <li> <%= i %>. <%= b.title %> by <%= b.author %>
+        <li> <%= i %>. <a href="/books/<%= b.id %>"><%= b.title %></a> by <%= b.author %>
         </ul>
         <br>
         <% end %>
@@ -18,4 +18,10 @@
     </ul>
 <% end %>
 <br>
-<a href="/owners/<%=current_user.id%>">Back to My Account</a>
+<% if logged_in? %>
+    <form action="/logout">
+        <input type="submit" value="Log Out" name="logout">
+    </form>
+    <br>
+    <a href="/owners/<%=current_user.id%>">Back to My Account</a>
+<% end %>

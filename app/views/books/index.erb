@@ -15,6 +15,10 @@
     </ul>
 <% end %>
 <br>
-<a href="/owners/<%=current_user.id%>">Back to My Account</a>
-
-
+<% if logged_in? %>
+    <form action="/logout">
+        <input type="submit" value="Log Out" name="logout">
+    </form>
+    <br>
+    <a href="/owners/<%=current_user.id%>">Back to My Account</a>
+<% end %>

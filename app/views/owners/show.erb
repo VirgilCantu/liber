@@ -19,20 +19,21 @@
 
 <% if current_user.id == @owner.id %>
 
-<form action="/books/new" method="GET">
-    <input type="submit" value="New Book" name="new_book">
-</form>
-<br>
+    <form action="/books/new" method="GET">
+        <input type="submit" value="New Book" name="new_book">
+    </form>
+    <br>
 
-<form action="/owners/<%= current_user.id %>/edit" method="GET">
-    <input type="submit" value="Edit Your Account" name="account_edit">
-</form>
-<br>
+    <form action="/owners/<%= current_user.id %>/edit" method="GET">
+        <input type="submit" value="Edit Your Account" name="account_edit">
+    </form>
+    <br>
 
-<form action="/logout">
-    <input type="submit" value="Log Out" name="logout">
-</form>
-<br>
+    <form action="/logout">
+        <input type="submit" value="Log Out" name="logout">
+    </form>
+    <br>
+    
 <% end %>
 
 <form action="/books">
