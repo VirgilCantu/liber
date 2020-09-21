@@ -1,6 +1,6 @@
 <h2><%= @owner.name %> (<%= @owner.username %>)</h2>
 
-<h3>Location: <%= current_user.location  %> </h3>
+<h3>Location: <%= @owner.location  %> </h3>
 <br>
 <h3>Current books in library:</h3>
 <br>
@@ -37,6 +37,7 @@
 <form action="/owners">
     <input type="submit" value="View All Available Owners" name="view_all">
 </form>
+<br>
 <% if logged_in? %>
     <form action="/logout">
         <input type="submit" value="Log Out" name="logout">
