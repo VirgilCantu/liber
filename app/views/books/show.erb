@@ -10,7 +10,7 @@
   <form action="/books/<%= @book.id %>/edit" method="GET">
     <input type="submit" value="Edit Book" name="book_edit">
   </form>
-<br>
+  <br>
   <form action="/books/<%= @book.id %>" method="post">
     <input id="hidden" type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete Book">
