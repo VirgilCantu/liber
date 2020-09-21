@@ -1,1 +1,16 @@
-/book/index.erb
+<h1>Liber Database</h1>
+<h3>A listing of all the books currently available to trade</h3>
+<br>
+<% Book.all.sort.each do |b| %>
+    <ul>
+    <h4><%= b.title %> by  <%= b.author %></h4>
+    <br>
+    <li>Genre: <%= b.genre %></li>
+    <li>Publishing Date: <%= b.year %></li>
+    <li>Condtion: <%= b.condition %></li>
+    <li>Type: <%= b.book_type %></li>
+    <li> Current Owner: <%= b.owner.name %> (<%= b.owner.username %>)
+    <br>
+    <br>
+    </ul>
+<% end %>
