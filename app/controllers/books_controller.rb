@@ -12,6 +12,7 @@ class BooksController < ApplicationController
     post "/books" do
         @book = Book.create(params)
         @book.owner = current_user
+        @book.save
         redirect to "/books/#{@book.id}"
     end
 

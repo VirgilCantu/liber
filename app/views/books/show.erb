@@ -1,0 +1,7 @@
+<h4><%= @book.title %> by  <%= @book.author %></h4>
+    <br>
+    <p>Genre: <%= @book.genre %></p>
+    <p>Publishing Date: <%= @book.year %></p>
+    <p>Condtion: <%= @book.condition %></p>
+    <p>Type: <%= @book.book_type %></p>
+    <p>Current Owner: <%= @book.owner.name %> (<%= @book.owner.username %>)</p>
