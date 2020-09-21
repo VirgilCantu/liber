@@ -21,9 +21,8 @@ class BooksController < ApplicationController
         if params[:title].empty? || params[:author].empty? || params[:condition].empty? || params[:book_type].empty? 
             redirect "/required"
         else
-            @book = Book.create(params)
-            @book.owner = current_user
-            @book.save
+            book = Book.create(params) 
+            current_user.books << book
             redirect "/owners/#{current_user.id}"
         end
     end
@@ -45,7 +44,6 @@ class BooksController < ApplicationController
     patch '/books/:id' do
         find_book
         @book.update(params[:book])  
-        @book.save 
         redirect "books/#{@book.id}"
       end
 

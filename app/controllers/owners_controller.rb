@@ -38,7 +38,6 @@ class OwnersController < ApplicationController
     patch '/owners/:id' do
         find_owner
         @owner.update(params[:owner])  
-        @owner.save 
         redirect to "/owners/#{@owner.id}"
       end
 end
