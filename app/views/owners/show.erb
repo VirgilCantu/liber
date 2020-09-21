@@ -2,10 +2,6 @@
 
 <h3>Your current location: <%= current_user.location  %> </h3>
 <br>
-<form action="/books/new" method="GET">
-    <input type="submit" value="New Book" name="new_book">
-</form>
-<br>
 <h3>Current books in your library:</h3>
 <br>
 <% current_user.books.each do |b| %>
@@ -21,8 +17,13 @@
     </ul>
 <% end %>
 
-<form action="/logout">
-    <input type="submit" value="Log Out" name="logout">
+<form action="/books/new" method="GET">
+    <input type="submit" value="New Book" name="new_book">
+</form>
+<br>
+
+<form action="/books">
+    <input type="submit" value="View All Available Books" name="view_all">
 </form>
 <br>
 
@@ -30,6 +31,6 @@
     <input type="submit" value="Edit Your Account" name="account_edit">
 </form>
 <br>
-<br>
 
-<a href="/">Home</a>
+<form action="/logout">
+    <input type="submit" value="Log Out" name="logout">
