@@ -37,3 +37,12 @@
 <form action="/owners">
     <input type="submit" value="View All Available Owners" name="view_all">
 </form>
+<% if logged_in? %>
+    <form action="/logout">
+        <input type="submit" value="Log Out" name="logout">
+    </form>
+    <br>
+    <a href="/owners/<%=current_user.id%>">Back to My Account</a>
+<% else %>
+    <a href="/">Back to Homepage</a>
+<% end %>
