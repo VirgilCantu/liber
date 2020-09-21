@@ -4,7 +4,7 @@
     <p>Publishing Date: <%= @book.year %></p>
     <p>Condtion: <%= @book.condition %></p>
     <p>Type: <%= @book.book_type %></p>
-    <p>Current Owner: <%= @book.owner.name %> (<%= @book.owner.username %>)</p>
+    <p>Current Owner: <a href="/owners/<%= @book.owner.id %>"><%= @book.owner.name %></a> (<%= @book.owner.username %>)</p>
     <p>Synopsis: <%= @book.synopsis %></p>
 <% if logged_in? && current_user.id == @book.owner.id %>
   <form action="/books/<%= @book.id %>/edit" method="GET">
