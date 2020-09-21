@@ -3,28 +3,35 @@
 <form action="/books/<%= @book.id %>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="patch">
     <label for="title">Title: </label>
-    <input type="text" name="[book]title" placeholder="Title" value= "<%= @book.title %>">
+    <input type="text" name="book[title]" placeholder="Title" value= "<%= @book.title %>">
     <br>
     <br>
     <label for="author">Author: </label>
-    <input type="text" name="[book]author" placeholder="Author" value= "<%= @book.author %>">
+    <input type="text" name="book[author]" placeholder="Author" value= "<%= @book.author %>">
     <br>
     <br>
     <label for="genre">Genre: </label>
-    <input type="text" name="[book]genre" placeholder="Genre" value= "<%= @book.genre %>">
+    <input type="text" name="book[genre]" placeholder="Genre" value= "<%= @book.genre %>">
     <br>
     <br>
     <label for="year">Publishing Year (e.g. 1991): </label>
-    <input type="text" name="[book]year" placeholder="Publishing Year" value= "<%= @book.year %>">
+    <input type="text" name="book[year]" placeholder="Publishing Year" value= "<%= @book.year %>">
     <br>
     <br>
     <label for="condition">Condition (e.g. New/Used): </label>
-    <input type="text" name="[book]condition" placeholder="Condition" value= "<%= @book.condition %>">
+    <input type="text" name="book[condition]" placeholder="Condition" value= "<%= @book.condition %>">
     <br>
     <br>
     <label for="book_type">Type (e.g. Hardcover/Paperback): </label>
-    <input type="text" name="[book]book_type" placeholder="Type" value= "<%= @book.book_type %>">
+    <input type="text" name="book[book_type]" placeholder="Type" value= "<%= @book.book_type %>">
     <br>
+    <br>
+    <label for="change_owner">Change Owner: </label>
+    <br>
+    <br>
+    <% Owner.all.each do |owner| %>
+      <input type="radio" name="book[owner_id]" id="<%= owner.id %>" value="<%= owner.id %>" <%='checked' if @book.owner == owner %>><%= owner.name %><br>
+    <% end %>
     <br>
     <input type="submit" value="Submit Changes"> 
 </form>
