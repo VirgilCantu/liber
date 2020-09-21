@@ -16,6 +16,10 @@
   </form>
 <% end %>  
 <br>
+<form action="/owners">
+    <input type="submit" value="View All Available Owners" name="view_all">
+</form>
+<br>
 <% if logged_in? %>
     <form action="/logout">
         <input type="submit" value="Log Out" name="logout">

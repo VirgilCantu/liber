@@ -16,26 +16,24 @@
     <br>
     </ul>
 <% end %>
-
-<% if current_user.id == @owner.id %>
-
+<% if logged_in? && current_user.id == @owner.id %>
     <form action="/books/new" method="GET">
         <input type="submit" value="New Book" name="new_book">
     </form>
     <br>
-
     <form action="/owners/<%= current_user.id %>/edit" method="GET">
         <input type="submit" value="Edit Your Account" name="account_edit">
     </form>
     <br>
-
     <form action="/logout">
         <input type="submit" value="Log Out" name="logout">
     </form>
-    <br>
-    
+    <br>  
 <% end %>
-
 <form action="/books">
     <input type="submit" value="View All Available Books" name="view_all">
+</form>
+<br>
+<form action="/owners">
+    <input type="submit" value="View All Available Owners" name="view_all">
 </form>
