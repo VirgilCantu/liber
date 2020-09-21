@@ -1,1 +1,29 @@
-/book/new.erb
+<h3>Enter your books information below to add a book to your library</h3>
+<br>
+<form action="/new" method="POST">
+    <label for="title">Title: </label>
+    <input type="text" name="title" placeholder="Title">
+    <br>
+    <br>
+    <label for="author">Author: </label>
+    <input type="text" name="author" placeholder="Author">
+    <br>
+    <br>
+    <label for="genre">Genre: </label>
+    <input type="text" name="genre" placeholder="Genre">
+    <br>
+    <br>
+    <label for="year">Publishing Year: </label>
+    <input type="text" name="year" placeholder="Publishing Year">
+    <br>
+    <br>
+    <label for="condition">Condition(New/Used): </label>
+    <input type="text" name="condition" placeholder="Condition">
+    <br>
+    <br>
+    <label for="type">Type(Hardcover/Paperback): </label>
+    <input type="text" name="type" placeholder="Type">
+    <br>
+    <br>
+    <input type="submit" value="Add Book">
+</form>

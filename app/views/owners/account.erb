@@ -2,9 +2,8 @@
 
 <h3>Your current location: <%= current_user.location  %> </h3>
 <br>
-<h3>Add a new book</h3>
-<form action="/books/new">
-    <input type="submit" value="Add New Book" name="add_new_book">
+<form action="/new" method="GET">
+    <input type="submit" value="New Book" name="new_book">
 </form>
 <br>
 <h3>Current books in your library:</h3>
