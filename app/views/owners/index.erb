@@ -17,11 +17,16 @@
     <br>
     </ul>
 <% end %>
+<form action="/books">
+    <input type="submit" value="View All Available Books" name="view_all">
+</form>
 <br>
 <% if logged_in? %>
+
     <form action="/logout">
         <input type="submit" value="Log Out" name="logout">
     </form>
     <br>
     <a href="/owners/<%=current_user.id%>">Back to My Account</a>
+
 <% end %>
