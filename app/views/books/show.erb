@@ -5,7 +5,7 @@
     <p>Condtion: <%= @book.condition %></p>
     <p>Type: <%= @book.book_type %></p>
     <p>Current Owner: <%= @book.owner.name %> (<%= @book.owner.username %>)</p>
-    <p>Synopsis: <%= @book.synopsis %>
+    <p>Synopsis: <%= @book.synopsis %></p>
 <% if logged_in? && current_user.id == @book.owner.id %>
   <form action="/books/<%= @book.id %>/edit" method="GET">
     <input type="submit" value="Edit Book" name="book_edit">
@@ -20,7 +20,6 @@
 <form action="/owners">
     <input type="submit" value="View All Available Owners" name="view_all">
 </form>
-<br>
 <% if logged_in? %>
     <form action="/logout">
         <input type="submit" value="Log Out" name="logout">
