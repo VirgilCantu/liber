@@ -1,4 +1,4 @@
-<h1>Liber Database</h1>
+<h1>Liber Book Database</h1>
 <h3>A listing of all the books currently available to trade</h3>
 <br>
 <% Book.all.sort.each.with_index(1) do |b, i| %>
@@ -9,7 +9,7 @@
     <li>Publishing Date: <%= b.year %></li>
     <li>Condtion: <%= b.condition %></li>
     <li>Type: <%= b.book_type %></li>
-    <li> Current Owner: <%= b.owner.name %> (<%= b.owner.username %>)
+    <li>Current Owner: <%= b.owner.name %> (<%= b.owner.username %>)
     <br>
     <br>
     </ul>

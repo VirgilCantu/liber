@@ -1,1 +1,19 @@
-/owners/index.erb
+<h1>Liber Owner Database</h1>
+<h3>A listing of all Liber members and their current books for trade</h3>
+<br>
+<% Owner.all.sort.each.with_index(1) do |o, i| %>
+    <ul>
+    <h4><%= i %>. <%= o.name %> (<%= o.username %>) - <%= o.location %></h4>
+    <br>
+    <li>Books for Trade:</li>
+        <br>
+        <% o.books.each.with_index(1) do |b, i| %>
+        <ul>
+        <li> <%= i %>. <%= b.title %> by <%= b.author %>
+        </ul>
+        <br>
+        <% end %>
+    <br>
+    <br>
+    </ul>
+<% end %>

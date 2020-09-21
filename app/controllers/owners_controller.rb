@@ -1,10 +1,10 @@
 class OwnersController < ApplicationController
     
-    get "/signup" do
+    get "/new" do
         erb :"owners/signup"
     end
 
-    post "/signup" do
+    post "/new" do
         if params[:username] == "" || params[:password] == "" || params[:name] == "" 
             redirect "/failure"
         elsif Owner.find_by(username: params[:username])
@@ -17,5 +17,10 @@ class OwnersController < ApplicationController
 
     get "/account" do
         erb :"owners/account"
+    end
+
+    get "/owners" do
+        @owners = Owner.all
+        erb :'/owners/index'
     end
 end
