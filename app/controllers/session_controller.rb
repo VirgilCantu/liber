@@ -5,7 +5,11 @@ class SessionController < ApplicationController
     end
 
     get "/login" do
-        erb :"session/login"
+        if logged_in? 
+            redirect "/owners/#{current_user.id}"
+        else
+            erb :"session/login"
+        end
     end
 
     post "/login" do

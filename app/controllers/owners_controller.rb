@@ -1,7 +1,11 @@
 class OwnersController < ApplicationController
     
     get "/owners/new" do
-        erb :"owners/new"
+        if logged_in? 
+            redirect "/owners/#{current_user.id}"
+        else
+            erb :"owners/new"
+        end
     end
 
     post "/owners/new" do
@@ -39,5 +43,5 @@ class OwnersController < ApplicationController
         find_owner
         @owner.update(params[:owner])  
         redirect to "/owners/#{@owner.id}"
-      end
+    end
 end
