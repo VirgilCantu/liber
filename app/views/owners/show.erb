@@ -1,10 +1,10 @@
-<h2><%= current_user.name %> (<%= current_user.username %>), welcome to Liber.</h2>
+<h2><%= @owner.name %> (<%= @owner.username %>)</h2>
 
-<h3>Your current location: <%= current_user.location  %> </h3>
+<h3>Location: <%= current_user.location  %> </h3>
 <br>
-<h3>Current books in your library:</h3>
+<h3>Current books in library:</h3>
 <br>
-<% current_user.books.each do |b| %>
+<% @owner.books.each do |b| %>
     <ul>
     <h4><a href="/books/<%= b.id %>"><%= b.title %></a> by  <%= b.author %></h4>
     <br>
@@ -17,13 +17,10 @@
     </ul>
 <% end %>
 
+<% if current_user.id == @owner.id %>
+
 <form action="/books/new" method="GET">
     <input type="submit" value="New Book" name="new_book">
-</form>
-<br>
-
-<form action="/books">
-    <input type="submit" value="View All Available Books" name="view_all">
 </form>
 <br>
 
@@ -34,3 +31,10 @@
 
 <form action="/logout">
     <input type="submit" value="Log Out" name="logout">
+</form>
+<br>
+<% end %>
+
+<form action="/books">
+    <input type="submit" value="View All Available Books" name="view_all">
+</form>

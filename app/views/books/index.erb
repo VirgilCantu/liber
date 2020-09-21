@@ -9,10 +9,12 @@
     <li>Publishing Date: <%= b.year %></li>
     <li>Condtion: <%= b.condition %></li>
     <li>Type: <%= b.book_type %></li>
-    <li>Current Owner: <%= b.owner.name %> (<%= b.owner.username %>)
+    <li>Current Owner: <a href="/owners/<%= b.owner.id %>"><%= b.owner.name %></a> (<%= b.owner.username %>) - <%= b.owner.location %>
     <br>
     <br>
     </ul>
 <% end %>
 <br>
 <a href="/owners/<%=current_user.id%>">Back to My Account</a>
+
+
