@@ -17,6 +17,14 @@ class ApplicationController < Sinatra::Base
     def current_user
       Owner.find(session[:user_id])
     end
+
+    def find_book
+      @book = Book.find(params[:id])
+    end
+
+    def find_owner
+      @owner = Owner.find(params[:id])
+    end
   end
   
 end

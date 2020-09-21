@@ -14,7 +14,7 @@ class BooksController < ApplicationController
     end
 
     post "/books" do
-        if params[:title] && params[:author && ]
+        #if params[:title] && params[:author && ]
         @book = Book.create(params)
         @book.owner = current_user
         @book.save
@@ -22,17 +22,17 @@ class BooksController < ApplicationController
     end
 
     get '/books/:id' do
-        @book = Book.find(params[:id])
+        find_book
         erb :'/books/show'
     end
     
     get '/books/:id/edit' do
-        @book = Book.find(params[:id])
+        find_book
         erb :'/books/edit'
     end 
 
     patch '/books/:id' do
-        @book = Book.find(params[:id])
+        find_book
         @book.update(params[:book])  
         @book.save 
         redirect "books/#{@book.id}"

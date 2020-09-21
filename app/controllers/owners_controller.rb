@@ -10,8 +10,9 @@ class OwnersController < ApplicationController
         elsif Owner.find_by(username: params[:username])
             redirect "/taken"
         else
-            Owner.create(params)
-            redirect "/login"
+            user = Owner.create(params)
+            session[:user_id] = user.id
+            redirect "/owners/#{user.id}"
         end
     end
 
@@ -21,12 +22,12 @@ class OwnersController < ApplicationController
     end
 
     get '/owners/:id' do
-        @owner = Owner.find(params[:id])
+        find_owner
         erb :'/owners/show'
     end
 
     get '/owners/:id/edit' do
-        @owner = Owner.find(params[:id])
+        find_owner
         if current_user.id == @owner.id
         erb :'/owners/edit'
         else
@@ -35,7 +36,7 @@ class OwnersController < ApplicationController
     end 
 
     patch '/owners/:id' do
-        @owner = Owner.find(params[:id])
+        find_owner
         @owner.update(params[:owner])  
         @owner.save 
         redirect to "/owners/#{@owner.id}"
