@@ -48,4 +48,11 @@ class OwnersController < ApplicationController
         @owner.update(params[:owner])  
         redirect to "/owners/#{@owner.id}"
     end
+
+    delete '/owners/:id' do 
+        @owner = Owner.find_by_id(params[:id])
+        @owner.delete
+        session.clear
+        redirect "/"
+      end 
 end

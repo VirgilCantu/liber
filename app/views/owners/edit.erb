@@ -1,6 +1,6 @@
 <h3>Edit you Liber account information below</h3>
 <br>
-<form action="/owners/<%= @owner.id %>" method="POST">
+<form action="/owners/<%= current_user.id %>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="patch">
     <label for="username">Username: </label>
     <input type="text" name="owner[username]" placeholder="Username" value="<%=current_user.username%>">
@@ -24,5 +24,10 @@
 <form action="/logout">
     <input type="submit" value="Log Out" name="logout">
 </form>
+<br>
+ <form action="/owners/<%= current_user.id %>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Your Account">
+  </form>
 <br>
 <a href="/owners/<%=current_user.id%>">Back to My Account</a>
