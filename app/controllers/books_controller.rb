@@ -24,8 +24,12 @@ class BooksController < ApplicationController
     end
 
     get '/books/:id' do
-        find_book
-        erb :'/books/show'
+        if params[:id].to_i > Book.all.size
+            redirect "/failure"
+        else
+            find_book
+            erb :'/books/show'   
+        end
     end
     
     get '/books/:id/edit' do

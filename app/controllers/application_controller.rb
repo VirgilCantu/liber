@@ -8,6 +8,8 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     set :session_secret, "liber_secret"
   end
+
+  private
  
   helpers do
     def logged_in?

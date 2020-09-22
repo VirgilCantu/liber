@@ -26,8 +26,12 @@ class OwnersController < ApplicationController
     end
 
     get '/owners/:id' do
-        find_owner
-        erb :'/owners/show'
+        if params[:id].to_i > Owner.all.size
+            redirect "/failure"
+        else
+            find_owner
+            erb :'/owners/show'   
+        end
     end
 
     get '/owners/:id/edit' do
